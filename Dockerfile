@@ -11,11 +11,15 @@ RUN set -x; \
          gcc \
          gnupg2 \
          make \
-         postgresql-client-12 \
-         libpq-dev \
          libxml2 \
          libxslt-dev \
          python3-dev
+
+ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
+RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main' >  /etc/apt/sources.list.d/pgdg.list && \
+    curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - && \
+    apt-get update && apt-get install -y --no-install-recommends postgresql-client-12 libpq-dev && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade setuptools wheel
 RUN pip install git+https://github.com/OCA/openupgradelib xades xmltodict zeep
