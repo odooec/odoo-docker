@@ -15,7 +15,6 @@ RUN set -x; \
          libpq-dev \
          libxml2 \
          libxslt-dev \
-         libxslt1-dev \
          python3-dev
 
 RUN pip install --upgrade setuptools wheel
