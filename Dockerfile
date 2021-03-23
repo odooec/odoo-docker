@@ -24,7 +24,16 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main' >  /et
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade setuptools wheel
-RUN pip install git+https://github.com/OCA/openupgradelib xades xmltodict zeep
+RUN pip install git+https://github.com/OCA/openupgradelib \
+                numpy \
+                openpyxl \
+                pyopenssl==19.1.0 \
+                requests \
+                validators \
+                viivakoodi \
+                xades==0.2.1 \
+                xmltodict \
+                zeep
 
 # https://github.com/OCA/maintainer-quality-tools/pull/404
 ENV MQT_URI="https://github.com/arkhan/maintainer-quality-tools/archive/master.tar.gz"
