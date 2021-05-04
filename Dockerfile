@@ -33,7 +33,8 @@ RUN pip install git+https://github.com/OCA/openupgradelib \
                 viivakoodi \
                 xades==0.2.1 \
                 xmltodict \
-                zeep==4.0.0
+                zeep \
+                psycopg2==2.7.3.1
 
 # https://github.com/OCA/maintainer-quality-tools/pull/404
 ENV MQT_URI="https://github.com/arkhan/maintainer-quality-tools/archive/master.tar.gz"
